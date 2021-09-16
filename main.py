@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 currentMenu = "initialMenu"
 running = True
@@ -64,6 +65,7 @@ def loginMenu():
             print("You need to enter a number")
 
 
+#TODO: Add option for viewing history
 def loggedInMenu():
     while True:
         toDisplay(loggedInMenuLayout)
@@ -104,6 +106,14 @@ def createAccount():
     tempList.append(account)
     writeToDatabase()
 
+# TODO: Take in current date
+def saveTransaction(amount):
+    transaction = {
+        "date": datetime.today().strftime('%Y-%m-%d'),
+        "amount": amount
+    }
+    tempList[currentAccount]["transactions"].append(transaction)
+
 
 def withdraw():
     while True:
@@ -112,6 +122,7 @@ def withdraw():
         if amount.isdigit():
             if tempList[currentAccount]["money"] - int(amount) >= 0:
                 tempList[currentAccount]["money"] = tempList[currentAccount]["money"] - int(amount)
+                saveTransaction("-" + amount)
                 writeToDatabase()
                 print("Your new balance is:", tempList[currentAccount]["money"])
                 break
@@ -126,6 +137,7 @@ def deposit():
         amount = input("Enter amount to deposit: ")
         if amount.isdigit():
             tempList[currentAccount]["money"] = tempList[currentAccount]["money"] + int(amount)
+            saveTransaction("+" + amount)
             writeToDatabase()
             print("Your new balance is:", tempList[currentAccount]["money"])
             break
