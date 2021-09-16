@@ -1,0 +1,40 @@
+[
+    {
+        "account": "0001",
+        "password": "1234",
+        "money": 100,
+        "transactions": [
+            {
+                "date": "2021-03-31",
+                "amount": "+100"
+            }
+        ]
+    },
+    {
+        "account": "0002",
+        "password": "1234",
+        "money": 100,
+        "transactions": [
+            {
+                "date": "2021-03-31",
+                "amount": 200
+            },
+            {
+                "date": "2021-04-01",
+                "amount": -100
+            }
+        ]
+    },
+    {
+        "account": "1234",
+        "password": "4321",
+        "money": 0,
+        "transactions": []
+    },
+    {
+        "account": "5555",
+        "password": "6666",
+        "money": 0,
+        "transactions": []
+    }
+]
