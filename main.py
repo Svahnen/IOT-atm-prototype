@@ -1,5 +1,4 @@
 import json
-from typing import Dict
 
 currentMenu = "initialMenu"
 running = True
