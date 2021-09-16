@@ -2,6 +2,7 @@ import json
 
 currentMenu = "initialMenu"
 running = True
+currentAccount = None
 
 loggedInMenuLayout = [
     "1. Withdraw",
@@ -56,6 +57,7 @@ def loginMenu():
                 if int(value["account"]) == account and value["password"] == password:
                     print("you have logged in")
                     loggedIn = True
+                    return tempList.index(value) # Return account index to be saved
             if not loggedIn:
                 print("Wrong account or password")
         except:
@@ -67,11 +69,11 @@ def loggedInMenu():
         toDisplay(loggedInMenuLayout)
         selection = input()
         if selection == "1":
-            break
+            withdraw()
         elif selection == "2":
-            break
+            deposit()
         elif selection == "3":
-            break
+            print("Your current balance is:", tempList[currentAccount]["money"])
         elif selection == "4":
             break
         else:
@@ -86,6 +88,7 @@ def createAccount():
             for value in tempList:
                 if value["account"] == accountNr:
                     print("Account number already in use")
+                    print(value["account"].find(accountNr))
                     wasFree = False
             if wasFree:
                 accountPassword = input("Account password: ")
@@ -103,14 +106,40 @@ def createAccount():
     writeToDatabase()
 
 
+def withdraw():
+    while True:
+        print("Your current balance is:", tempList[currentAccount]["money"])
+        amount = input("Enter amount to withdraw: ")
+        if amount.isdigit():
+            if tempList[currentAccount]["money"] - int(amount) >= 0:
+                tempList[currentAccount]["money"] = tempList[currentAccount]["money"] - int(amount)
+                writeToDatabase()
+                print("Your new balance is:", tempList[currentAccount]["money"])
+                break
+            else:
+                print("Amount exceeds current balance")
+        else:
+            print("You need to enter a numer")
+
+def deposit():
+    while True:
+        print("Your current balance is:", tempList[currentAccount]["money"])
+        amount = input("Enter amount to deposit: ")
+        if amount.isdigit():
+            tempList[currentAccount]["money"] = tempList[currentAccount]["money"] + int(amount)
+            writeToDatabase()
+            print("Your new balance is:", tempList[currentAccount]["money"])
+            break
+        else:
+            print("You need to enter a numer")
+
 while running:
     toDisplay(accountMenuLayout)
     selection = input()
     if selection == "1":
-        #TODO: Create account function that also saves the created account
         createAccount()
     elif selection == "2":
-        loginMenu()
+        currentAccount = loginMenu() # Save the index of the logged in account
         loggedInMenu()
     elif selection == "3":
         break
