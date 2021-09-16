@@ -88,7 +88,6 @@ def createAccount():
             for value in tempList:
                 if value["account"] == accountNr:
                     print("Account number already in use")
-                    print(value["account"].find(accountNr))
                     wasFree = False
             if wasFree:
                 accountPassword = input("Account password: ")
