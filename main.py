@@ -59,7 +59,7 @@ def loginMenu():
                     loggedIn = True
                     return tempList.index(value) # Return account index to be saved
             if not loggedIn:
-                print("Wrong account or password")
+                print("Wrong password or account does not exist")
         except:
             print("You need to enter a number")
 
@@ -118,7 +118,7 @@ def withdraw():
             else:
                 print("Amount exceeds current balance")
         else:
-            print("You need to enter a numer")
+            print("You need to enter a positive numer")
 
 def deposit():
     while True:
@@ -130,7 +130,7 @@ def deposit():
             print("Your new balance is:", tempList[currentAccount]["money"])
             break
         else:
-            print("You need to enter a numer")
+            print("You need to enter a positive numer")
 
 while running:
     toDisplay(accountMenuLayout)
