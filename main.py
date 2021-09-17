@@ -1,9 +1,11 @@
 import json
 from datetime import datetime
 
+
 currentMenu = "initialMenu"
 running = True
 currentAccount = None
+
 
 loggedInMenuLayout = [
     "1. Withdraw",
@@ -13,11 +15,13 @@ loggedInMenuLayout = [
     "5. Logout"
     ]
 
+
 accountMenuLayout = [
     "1. Create account",
     "2. Login account",
     "3. Quit"
     ]
+
 
 createAccountMenuLayout = [
     "Enter an account nr, then a password"
@@ -33,13 +37,16 @@ def readDatabase():
     dataList = json.loads(jsonList) # Convert the json array to a python list
     return dataList
 
+
 tempList = readDatabase()
+
 
 def writeToDatabase():
     writeStream = open("database.JSON", "w")
     json_string = json.dumps(tempList)
     writeStream.write(json_string)
     writeStream.close()
+
 
 def toDisplay(menu):
     print("-------------------")
@@ -73,7 +80,6 @@ def transactionHistory():
         print("Amount:", value["amount"])
 
 
-#TODO: Add option for viewing history
 def loggedInMenu():
     while True:
         toDisplay(loggedInMenuLayout)

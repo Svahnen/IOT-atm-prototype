@@ -1,1 +1,40 @@
-[{"account": "99", "password": "99", "money": 1164, "transactions": [{"date": "2021-09-17", "amount": "+1000"}, {"date": "2021-09-17", "amount": "+200"}, {"date": "2021-09-17", "amount": "-124"}, {"date": "2021-09-17", "amount": "+88"}]}, {"account": "1234", "password": "4321", "money": 8766, "transactions": [{"date": "2021-09-17", "amount": "+9000"}, {"date": "2021-09-17", "amount": "-234"}]}]
+[
+    {
+        "account": "99",
+        "password": "99",
+        "money": 1164,
+        "transactions": [
+            {
+                "date": "2021-09-17",
+                "amount": "+1000"
+            },
+            {
+                "date": "2021-09-17",
+                "amount": "+200"
+            },
+            {
+                "date": "2021-09-17",
+                "amount": "-124"
+            },
+            {
+                "date": "2021-09-17",
+                "amount": "+88"
+            }
+        ]
+    },
+    {
+        "account": "1234",
+        "password": "4321",
+        "money": 8766,
+        "transactions": [
+            {
+                "date": "2021-09-17",
+                "amount": "+9000"
+            },
+            {
+                "date": "2021-09-17",
+                "amount": "-234"
+            }
+        ]
+    }
+]
