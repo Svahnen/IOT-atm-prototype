@@ -9,7 +9,8 @@ loggedInMenuLayout = [
     "1. Withdraw",
     "2. Deposit",
     "3. Balance",
-    "4. Logout"
+    "4. History",
+    "5. Logout"
     ]
 
 accountMenuLayout = [
@@ -65,6 +66,13 @@ def loginMenu():
             print("You need to enter a number")
 
 
+def transactionHistory():
+    for value in tempList[currentAccount]["transactions"]:
+        print("-------------------")
+        print("Date:", value["date"])
+        print("Amount:", value["amount"])
+
+
 #TODO: Add option for viewing history
 def loggedInMenu():
     while True:
@@ -77,6 +85,8 @@ def loggedInMenu():
         elif selection == "3":
             print("Your current balance is:", tempList[currentAccount]["money"])
         elif selection == "4":
+            transactionHistory()
+        elif selection == "5":
             break
         else:
             print("You need to enter a menu number")
@@ -144,7 +154,6 @@ def deposit():
         else:
             print("You need to enter a positive numer")
 
-# TODO: Function that shows transaction history
 
 while running:
     toDisplay(accountMenuLayout)
