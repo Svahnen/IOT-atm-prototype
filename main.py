@@ -61,7 +61,7 @@ def loginMenu():
                     return tempList.index(value) # Return account index to be saved
             if not loggedIn:
                 print("Wrong password or account does not exist")
-        except:
+        except ValueError:
             print("You need to enter a number")
 
 
@@ -106,7 +106,7 @@ def createAccount():
     tempList.append(account)
     writeToDatabase()
 
-# TODO: Take in current date
+
 def saveTransaction(amount):
     transaction = {
         "date": datetime.today().strftime('%Y-%m-%d'),
@@ -143,6 +143,8 @@ def deposit():
             break
         else:
             print("You need to enter a positive numer")
+
+# TODO: Function that shows transaction history
 
 while running:
     toDisplay(accountMenuLayout)

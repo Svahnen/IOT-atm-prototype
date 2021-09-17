@@ -1,1 +1,28 @@
-[{"account": "0001", "password": "1234", "money": 100, "transactions": [{"date": "2021-03-31", "amount": "+100"}]}, {"account": "0002", "password": "1234", "money": 100, "transactions": [{"date": "2021-03-31", "amount": 200}, {"date": "2021-04-01", "amount": -100}]}, {"account": "1234", "password": "4321", "money": 0, "transactions": []}, {"account": "5555", "password": "6666", "money": 0, "transactions": []}, {"account": "4321", "password": "1234", "money": 0, "transactions": []}, {"account": "45234", "password": "34234", "money": 0, "transactions": []}, {"account": "6666", "password": "6666", "money": 150, "transactions": []}, {"account": "99", "password": "99", "money": 798, "transactions": []}, {"account": "999", "password": "999", "money": 0, "transactions": []}, {"account": "0000", "password": "0000", "money": 0, "transactions": []}]
+[
+    {
+        "account": "99",
+        "password": "99",
+        "money": 1000,
+        "transactions": [
+            {
+                "date": "2021-09-17",
+                "amount": "+1000"
+            }
+        ]
+    },
+    {
+        "account": "1234",
+        "password": "4321",
+        "money": 8766,
+        "transactions": [
+            {
+                "date": "2021-09-17",
+                "amount": "+9000"
+            },
+            {
+                "date": "2021-09-17",
+                "amount": "-234"
+            }
+        ]
+    }
+]
