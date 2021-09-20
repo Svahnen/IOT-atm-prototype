@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+import sys
 
 
 currentMenu = "initialMenu"
@@ -31,21 +32,27 @@ createAccountMenuLayout = [
 # Future proof function where its possible to connect to a real database
 # instead of database.JSON
 def readDatabase():
-    readStream = open("database.JSON", "r")
-    jsonList = readStream.read()
-    readStream.close()
-    dataList = json.loads(jsonList) # Convert the json array to a python list
-    return dataList
+    try:
+        readStream = open("database.JSON", "r")
+        jsonList = readStream.read()
+        readStream.close()
+        dataList = json.loads(jsonList) # Convert the json array to a python list
+        return dataList
+    except:
+        sys.exit("An error occurred when trying to open database.JSON")
 
 
 tempList = readDatabase()
 
 
 def writeToDatabase():
-    writeStream = open("database.JSON", "w")
-    json_string = json.dumps(tempList)
-    writeStream.write(json_string)
-    writeStream.close()
+    try:
+        writeStream = open("database.JSON", "w")
+        json_string = json.dumps(tempList)
+        writeStream.write(json_string)
+        writeStream.close()
+    except:
+        sys.exit("An error occurred when trying to write to database.JSON")
 
 
 def toDisplay(menu):
