@@ -1,6 +1,6 @@
+import sys
 import json
 from datetime import datetime
-import sys
 
 
 currentMenu = "initialMenu"
